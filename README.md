@@ -1,2 +1,2 @@
 # WindowsNTXBeautifyHelper
- WindowsNT6+美化助手
+ WindowsNTX美化助手
