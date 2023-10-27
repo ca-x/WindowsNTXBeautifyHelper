@@ -1,27 +1,37 @@
-﻿#Region ;**** 由 AccAu3Wrapper_GUI 创建指令 ****
+﻿#Region ;**** Directives created by AutoIt3Wrapper_GUI ****
+#AutoIt3Wrapper_Icon=Tool.ico
+#AutoIt3Wrapper_Compression=4
+#AutoIt3Wrapper_Compile_Both=y
+#AutoIt3Wrapper_UseX64=y
+#AutoIt3Wrapper_Res_Description=Windows NT6+美化助手
+#AutoIt3Wrapper_Res_Fileversion=2.0.2.7
+#AutoIt3Wrapper_Res_ProductVersion=2.0.2.7
+#AutoIt3Wrapper_Res_CompanyName=虫子樱桃
+#AutoIt3Wrapper_Res_Language=2052
+#EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 #PRE_Icon=Tool.ico
 #PRE_Outfile=WindowsNT6+美化助手.exe
 #PRE_Outfile_x64=WindowsNT6+美化助手_x64.exe
 #PRE_Compile_Both=y
 #PRE_Res_Comment=Windows NT6+美化助手
 #PRE_Res_Description=Windows NT6+美化助手
-#PRE_Res_Fileversion=2.0.2.6
+#PRE_Res_Fileversion=2.0.2.7
 #PRE_Res_LegalCopyright=虫子樱桃
 #PRE_Res_Language=2052
 #PRE_Res_requestedExecutionLevel=highestAvailable
 #PRE_Antidecompile=y
-#EndRegion ;**** 由 AccAu3Wrapper_GUI 创建指令 ****
 #Region ;**** 参数创建于 ACNWrapper_GUI ****
 #EndRegion ;**** 参数创建于 ACNWrapper_GUI ****
-#include <Misc.au3>
-#include <File.au3>
+#include <Array.au3>
 #include <ButtonConstants.au3>
 #include <Constants.au3>
+#include <File.au3>
 #include <EditConstants.au3>
 #include <GUIConstantsEx.au3>
 #include <GDIPlus.au3>
-#include <StaticConstants.au3>
 #include <GuiStatusBar.au3>
+#include <Misc.au3>
+#include <StaticConstants.au3>
 #include <WindowsConstants.au3>
 #include <WinAPIEx.au3>
 If $cmdline[0] <> 0 Then
@@ -312,8 +322,8 @@ Func GenerateResTree()
 		EndIf
 	EndIf
 	DisAllCtrl()
-	Local $DirArry[43] = [$MhTargetStr & "\Program Files (x86)\Common Files\microsoft shared\MSInfo", $MhTargetStr & "\Program Files (x86)\Internet Explorer", $MhTargetStr & "\Program Files (x86)\Windows Mail", $MhTargetStr & "\Program Files (x86)\Windows Photo Gallery", $MhTargetStr & "\Program Files (x86)\Windows Media Player", $MhTargetStr & "\Program Files (x86)\Windows NT\Accessories", $MhTargetStr & "\Program Files (x86)\Windows Photo Viewer",$MhTargetStr & "\Program Files\Microsoft OneDrive", $MhTargetStr & "\Program Files (x86)\Windows Sidebar", $MhTargetStr & "\windows\SystemResources", $MhTargetStr & "\windows\Branding\Basebrd\en-us", $MhTargetStr & "\windows\Branding\ShellBrd", $MhTargetStr & "\windows\System32", $MhTargetStr & "\windows\System32\zh-CN", $MhTargetStr & "\windows\System32\en-us", $MhTargetStr & "\windows\System32\migwiz", $MhTargetStr & "\windows\System32\Speech\SpeechUX", $MhTargetStr & "\Program Files (x86)\Windows Defender", $MhTargetStr & "\Program Files (x86)\Windows Journal", $MhTargetStr & "\Program Files (x86)\DVD Maker", $MhTargetStr & "\Program Files\Common Files\microsoft shared\MSInfo", $MhTargetStr & "\Program Files\Internet Explorer", $MhTargetStr & "\Program Files\Windows Mail", $MhTargetStr & "\Program Files\Windows Photo Gallery", $MhTargetStr & "\Program Files\Windows Media Player", $MhTargetStr & "\Program Files\Windows NT\Accessories", $MhTargetStr & "\Program Files\Windows Photo Viewer", $MhTargetStr & "\Program Files\Windows Sidebar", $MhTargetStr & "\windows", $MhTargetStr & "\windows\Branding\Basebrd\zh-CN", $MhTargetStr & "\windows\Branding\Basebrd\en-us", $MhTargetStr & "\windows\Branding\Basebrd", $MhTargetStr & "\windows\Branding\ShellBrd",$MhTargetStr & "\Windows\SystemResources", $MhTargetStr & "\windows\SysWOW64", $MhTargetStr & "\windows\SysWOW64\zh-CN", $MhTargetStr & "\windows\SysWOW64\en-us", $MhTargetStr & "\windows\SysWOW64\migwiz", $MhTargetStr & "\windows\SysWOW64\Speech\SpeechUX", $MhTargetStr & "\windows\ehome", $MhTargetStr & "\Program Files\Windows Defender", $MhTargetStr & "\Program Files\Windows Journal", $MhTargetStr & "\Program Files\DVD Maker"]
-	Local $aWin8Whitelist[40] = ["speechuxcpl.dll", "accessibilitycpl.dll", "ActionCenterCPL.dll", "autoplay.dll", "colorcpl.exe","OneDrive.exe", "DeviceCenter.dll", "DiagCpl.dllDiagCpl.dll", "Display.dllDisplay.dll", "FirewallControlPanel.dll", "devmgr.dll", "fontext.dll","imageres.dll.mun", "imageres.dll", "imagesp1.dll", "inetcpl.cpl", "intl.cpl", "main.cpl", "mmsys.cpl", "msinfo32.exe", "netcenter.dll", "notepad.exe", "powercpl.dll", "sdcpl.dll", "SensorsCpl.dll", "srchadmin.dll", "SyncCenter.dll", "taskbarcpl.dll", "telephon.cpl", "themecpl.dll", "timedate.cpl", "TSWorkspace.dll", "usercpl.dll", "Vault.dll", "wpccpl.dll", "wucltux.dll", "shellbrd.dll", "wordpad.exe","shellbrd.dll","systemcpl.dll.mui"]
+	Local $DirArry[43] = [$MhTargetStr & "\Program Files (x86)\Common Files\microsoft shared\MSInfo", $MhTargetStr & "\Program Files (x86)\Internet Explorer", $MhTargetStr & "\Program Files (x86)\Windows Mail", $MhTargetStr & "\Program Files (x86)\Windows Photo Gallery", $MhTargetStr & "\Program Files (x86)\Windows Media Player", $MhTargetStr & "\Program Files (x86)\Windows NT\Accessories", $MhTargetStr & "\Program Files (x86)\Windows Photo Viewer", $MhTargetStr & "\Program Files\Microsoft OneDrive", $MhTargetStr & "\Program Files (x86)\Windows Sidebar", $MhTargetStr & "\windows\SystemResources", $MhTargetStr & "\windows\Branding\Basebrd\en-us", $MhTargetStr & "\windows\Branding\ShellBrd", $MhTargetStr & "\windows\System32", $MhTargetStr & "\windows\System32\zh-CN", $MhTargetStr & "\windows\System32\en-us", $MhTargetStr & "\windows\System32\migwiz", $MhTargetStr & "\windows\System32\Speech\SpeechUX", $MhTargetStr & "\Program Files (x86)\Windows Defender", $MhTargetStr & "\Program Files (x86)\Windows Journal", $MhTargetStr & "\Program Files (x86)\DVD Maker", $MhTargetStr & "\Program Files\Common Files\microsoft shared\MSInfo", $MhTargetStr & "\Program Files\Internet Explorer", $MhTargetStr & "\Program Files\Windows Mail", $MhTargetStr & "\Program Files\Windows Photo Gallery", $MhTargetStr & "\Program Files\Windows Media Player", $MhTargetStr & "\Program Files\Windows NT\Accessories", $MhTargetStr & "\Program Files\Windows Photo Viewer", $MhTargetStr & "\Program Files\Windows Sidebar", $MhTargetStr & "\windows", $MhTargetStr & "\windows\Branding\Basebrd\zh-CN", $MhTargetStr & "\windows\Branding\Basebrd\en-us", $MhTargetStr & "\windows\Branding\Basebrd", $MhTargetStr & "\windows\Branding\ShellBrd", $MhTargetStr & "\Windows\SystemResources", $MhTargetStr & "\windows\SysWOW64", $MhTargetStr & "\windows\SysWOW64\zh-CN", $MhTargetStr & "\windows\SysWOW64\en-us", $MhTargetStr & "\windows\SysWOW64\migwiz", $MhTargetStr & "\windows\SysWOW64\Speech\SpeechUX", $MhTargetStr & "\windows\ehome", $MhTargetStr & "\Program Files\Windows Defender", $MhTargetStr & "\Program Files\Windows Journal", $MhTargetStr & "\Program Files\DVD Maker"]
+	Local $aWin8Whitelist[40] = ["speechuxcpl.dll", "accessibilitycpl.dll", "ActionCenterCPL.dll", "autoplay.dll", "colorcpl.exe", "OneDrive.exe", "DeviceCenter.dll", "DiagCpl.dllDiagCpl.dll", "Display.dllDisplay.dll", "FirewallControlPanel.dll", "devmgr.dll", "fontext.dll", "imageres.dll.mun", "imageres.dll", "imagesp1.dll", "inetcpl.cpl", "intl.cpl", "main.cpl", "mmsys.cpl", "msinfo32.exe", "netcenter.dll", "notepad.exe", "powercpl.dll", "sdcpl.dll", "SensorsCpl.dll", "srchadmin.dll", "SyncCenter.dll", "taskbarcpl.dll", "telephon.cpl", "themecpl.dll", "timedate.cpl", "TSWorkspace.dll", "usercpl.dll", "Vault.dll", "wpccpl.dll", "wucltux.dll", "shellbrd.dll", "wordpad.exe", "shellbrd.dll", "systemcpl.dll.mui"]
 	;模式自动切换，若选择的资源文件夹存在子目录，则与用户进行交互，提示是否调用替换，若不存在子目录，则直接创建资源树进行处理
 	Local $ResDirSubNum = _FileListToArray($ResDirStr, "*", 2)
 	;如果没检索到文件夹
@@ -322,7 +332,7 @@ Func GenerateResTree()
 		;无子文件夹
 		Local $ResFileArry = _FileListToArray($ResDirStr, "*.res", 1)
 		;创建文件扩展名数组
-		Local $ExtendArry[5] = ['mun', 'exe', 'dll', 'MUI',""]
+		Local $ExtendArry[5] = ['mun', 'exe', 'dll', 'MUI', ""]
 		;枚举目录及res文件
 		Local $n = 1, $Done = 0
 		For $dir In $DirArry
@@ -364,12 +374,12 @@ Func GenerateResTree()
 					If FileExists($dir & '\' & StringRegExpReplace($res, '.{3}$', $Ext)) Then $nFilefind = 1
 					If FileExists(StringRegExpReplace($res, '.{4}$', '')) Then $nFilefind = 2
 					If $nFilefind <> 0 Then
-						If @OSVersion = "WIN_81" Or @OSVersion = "WIN_8" Or @OSVersion = "WIN_10" Or @OSVersion = "WIN_2012R2" Or @OSVersion = "WIN_2012" Or @OSVersion = "WIN_2016" Or GUICtrlRead($OffineOSIsWin8Plus) = $GUI_CHECKED Then
+						If UseFileWhiteList() Or GUICtrlRead($OffineOSIsWin8Plus) = $GUI_CHECKED Then
 							If _BNameIsInWhiteList(StringRegExpReplace($res, '.{3}$', $Ext), $aWin8Whitelist) Then
 								If $nFilefind = 1 Then FileCopy($ResDirStr & '\' & $res, StringReplace($dir, $MhTargetStr, @TempDir & '\MHTemp') & '\' & StringRegExpReplace($res, '.{3}$', $Ext & 'res'), 1 + 8)
 								If $nFilefind = 2 Then FileCopy($ResDirStr & '\' & $res, StringReplace($dir, $MhTargetStr, @TempDir & '\MHTemp') & '\' & $res, 1 + 8)
 								_GUICtrlStatusBar_SetText($StatusBar, '[资源预处理]拷贝资源' & $res & '...(使用内置文件白名单)', 0, $SBT_NOBORDERS)
-								If	$Ext="mun" And $nFilefind=1 Then
+								If $Ext = "mun" And $nFilefind = 1 Then
 									ExitLoop
 								EndIf
 							EndIf
@@ -398,6 +408,11 @@ Func GenerateResTree()
 	EnAllCtrl()
 	$Is_sucess = True
 EndFunc   ;==>GenerateResTree
+
+Func UseFileWhiteList()
+	Local $whiteList = ["WIN_81", "WIN_8", "WIN_10", "WIN_11", "WIN_2012R2", "WIN_2012", "WIN_2016", "WIN_2019", "WIN_2022"]
+	Return _ArraySearch($whiteList, @OSVersion, 0, 0, 0, 1) <> -1
+EndFunc   ;==>UseFileWhiteList
 Func _BNameIsInWhiteList($TestStr, $aWhitelist)
 	If IsArray($aWhitelist) Then
 		For $x In $aWhitelist
@@ -444,10 +459,10 @@ Func ComfirmAndMake()
 	EndIf
 	If MsgBox(4, '提示', '是否使用"' & $UserInputInsName & '"作为美化包安装包名称？', 10) = 6 Then
 		Global $InstallerTitleName = $UserInputInsName
-		If StringInStr($InstallerTitleName,' ') Then
-		   Global $InstallerProductName = StringReplace($InstallerTitleName,' ','')
-	   Else
-		   $InstallerProductName = $InstallerTitleName
+		If StringInStr($InstallerTitleName, ' ') Then
+			Global $InstallerProductName = StringReplace($InstallerTitleName, ' ', '')
+		Else
+			$InstallerProductName = $InstallerTitleName
 		EndIf
 		GUISetState(@SW_HIDE, $MHinfoForm)
 	Else
@@ -536,7 +551,6 @@ Func ComfirmAndMake()
 		MsgBox(0, '提示', '已经完成既定操作！', 5)
 	EndIf
 EndFunc   ;==>ComfirmAndMake
-
 
 Func InsResFile()
 	If $Is_sucess = False Then Return
@@ -632,7 +646,6 @@ Func InsResFile()
 	EndIf
 EndFunc   ;==>InsResFile
 
-
 Func MhMain()
 	GenerateResTree()
 	InsResFile()
@@ -643,7 +656,7 @@ Func PatchDetect()
 	;返回2，则表示当前为服务器版本系统，需要对Imageres进行预处理以使登录界面可以被美化
 	;返回0，则隐藏最后破解的选项
 	Local $Edition = RegRead("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion", "EditionID")
-	If @OSVersion = 'WIN_7' And (StringInStr($Edition, 'starter') Or StringInStr($Edition, 'Home')) Then
+	If @OSVersion = 'WIN_7' And(StringInStr($Edition, 'starter') Or StringInStr($Edition, 'Home')) Then
 		Return 1
 	EndIf
 	If @OSVersion = 'WIN_2008' Or @OSVersion = 'WIN_2008R2' Then
@@ -728,7 +741,6 @@ EndFunc   ;==>downos
 Func rebos()
 	If MsgBox(4, "有爱的提示", "亲，是否立马重启，你的资料啥的保存好了么？") = 6 Then Shutdown(2 + 4)
 EndFunc   ;==>rebos
-
 
 Func authorblog()
 	ShellExecute("http://czyt.blog.com")
@@ -1029,7 +1041,6 @@ Func ForceCleanwim()
 	GUICtrlSetData($DelProcess, '拖动您要强制删除的文件或者文件夹到这里来')
 EndFunc   ;==>ForceCleanwim
 
-
 Func AdminRightTool()
 	TrayDisable()
 	GUISetState(@SW_HIDE, $Form1)
@@ -1189,7 +1200,6 @@ Func GetFile()
 	EndIf
 EndFunc   ;==>GetFile
 
-
 Func AddSurport2k8()
 	TrayDisable()
 	GUISetState(@SW_HIDE, $Form1)
@@ -1267,7 +1277,6 @@ Func ModifyRes()
 	EndIf
 EndFunc   ;==>ModifyRes
 
-
 Func WinNT5MHUI()
 	TrayDisable()
 	GUISetState(@SW_HIDE, $Form1)
@@ -1322,7 +1331,6 @@ Func SelectNT5Ins()
 		GUICtrlSetData($WinNT5InsFile, $dir)
 	EndIf
 EndFunc   ;==>SelectNT5Ins
-
 
 Func WinNT5MH()
 	GUICtrlSetState(@GUI_CtrlId, $GUI_DISABLE)
@@ -1511,7 +1519,7 @@ Func _ImageResize($sInImage, $sOutImage, $iW, $iH)
 EndFunc   ;==>_ImageResize
 
 Func donetMe()
-	MsgBox(0, '我知道您不小心点了这个..', '如果您喜欢这个工具，请赞助我！！' & @LF & '支付宝帐号:wenchongchong@gmail.com' & @LF & '感谢您对我的支持！', 5)
+	MsgBox(0, '我知道您不小心点了这个..', '如果您喜欢这个工具，请赞助我！！' & @LF & '支付宝帐号:czyt@outlook.com' & @LF & '感谢您对我的支持！', 5)
 EndFunc   ;==>donetMe
 
 Func RestoreFiles()
@@ -1601,7 +1609,6 @@ Func AboutDlg()
 
 	GUIRegisterMsg($WM_LBUTTONDOWN, "_WM_LBUTTONDOWN")
 EndFunc   ;==>AboutDlg
-
 
 Func _Exit()
 	_GDIPlus_BitmapDispose($hBitmap)
@@ -1708,7 +1715,6 @@ Func SetTransparentBitmap($hGUI, $hImage, $iOpacity = 0xFF)
 	_WinAPI_DeleteDC($hMemDC)
 EndFunc   ;==>SetTransparentBitmap
 
-
 Func _WM_LBUTTONDOWN($hwnd, $iMsg, $wParam, $lParam)
 	_SendMessage($hGUI, $WM_SYSCOMMAND, $SC_DRAGMOVE, 0)
 EndFunc   ;==>_WM_LBUTTONDOWN
@@ -1735,26 +1741,26 @@ Func ChangeFont()
 	Global $FormChangeFont = _GUICreate("设置系统对话框默认字体", 321, 78, -1, -1, -1, BitOR($WS_EX_ACCEPTFILES, $WS_EX_WINDOWEDGE), $Form1)
 	Global $FontName = GUICtrlCreateInput("FontName", 8, 8, 241, 21)
 	GUICtrlCreateButton("选择", 256, 8, 59, 25)
-	GUICtrlSetOnEvent(-1,'chooseFont')
+	GUICtrlSetOnEvent(-1, 'chooseFont')
 	GUICtrlCreateButton("设置", 8, 40, 299, 25)
-	GUICtrlSetOnEvent(-1,'SetFont')
+	GUICtrlSetOnEvent(-1, 'SetFont')
 	GUISetState(@SW_SHOW)
-	GUISetOnEvent($GUI_EVENT_CLOSE,'QuitFontSt')
-EndFunc
+	GUISetOnEvent($GUI_EVENT_CLOSE, 'QuitFontSt')
+EndFunc   ;==>ChangeFont
 Func QuitFontSt()
 	GUISetState(@SW_HIDE, $FormChangeFont)
 	GUIDelete($FormChangeFont)
 	TrayEnable()
 	GUISetState(@SW_SHOW, $Form1)
-EndFunc
+EndFunc   ;==>QuitFontSt
 Func chooseFont()
 	$font = _ChooseFont("微软雅黑")
 	If Not @error Then
-		GUICtrlSetData($FontName,$font[2])
+		GUICtrlSetData($FontName, $font[2])
 	EndIf
-EndFunc
+EndFunc   ;==>chooseFont
 Func SetFont()
-	RunWait(@TempDir & '\W7Patcher_' & @OSArch & '.exe -f '&GUICtrlRead($FontName), @TempDir, @SW_HIDE)
+	RunWait(@TempDir & '\W7Patcher_' & @OSArch & '.exe -f ' & GUICtrlRead($FontName), @TempDir, @SW_HIDE)
 	RunWait(@TempDir & '\W7Patcher_' & @OSArch & '.exe -clc ', @TempDir, @SW_HIDE)
-	MsgBox(0,'','修改字体成功！注销或重启生效！')
-EndFunc
+	MsgBox(0, '', '修改字体成功！注销或重启生效！')
+EndFunc   ;==>SetFont
